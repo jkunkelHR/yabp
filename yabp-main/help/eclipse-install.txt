@@ -1,0 +1,8 @@
+python:
+http://pydev.org/updates  
+
+git:
+e&j
+
+arduino:
+http://www.baeyens.it/eclipse/Install.html
