@@ -10,8 +10,11 @@ class MyClass(object):
     '''
 
 
-    def __init__(selfparams):
+    def __init__(self):
         '''
         Constructor
         '''
+    def print_out(self):
+        print("penis1")
+        
         
