@@ -4,9 +4,13 @@
 // - extern variable definitions
 // In the appropriate section
 
-#ifndef yabp-arduino-uno_H_
-#define yabp-arduino-uno_H_
+#ifndef yabparduinouno_H_
+#define yabparduinouno_H_
 #include "Arduino.h"
+#include "lib/HotPlates/HotPlates.h"
+#include "lib/OneWire/OneWire.h"
+#include "lib/DallasTemperature/DallasTemperature.h"
+
 //add your includes for the project yabp-arduino-uno here
 
 

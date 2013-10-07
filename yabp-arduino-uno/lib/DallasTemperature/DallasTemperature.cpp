@@ -452,7 +452,9 @@ float DallasTemperature::calculateTemperature(uint8_t* deviceAddress, uint8_t* s
       // Good spot. Thanks Nic Johns for your contribution
       return (float)(rawTemperature >> 1) - 0.25 +((float)(scratchPad[COUNT_PER_C] - scratchPad[COUNT_REMAIN]) / (float)scratchPad[COUNT_PER_C] );
       break;
+
   }
+  return true;
 }
 
 // returns temperature in degrees C or DEVICE_DISCONNECTED if the
