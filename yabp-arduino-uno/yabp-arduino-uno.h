@@ -7,14 +7,14 @@
 #ifndef yabparduinouno_H_
 #define yabparduinouno_H_
 #include "Arduino.h"
+
+
 #include "lib/HotPlates/HotPlates.h"
 #include "lib/OneWire/OneWire.h"
 #include "lib/DallasTemperature/DallasTemperature.h"
 
-//add your includes for the project yabp-arduino-uno here
+typedef uint8_t FunctionCall[2];
 
-
-//end of add your includes here
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,9 +23,9 @@ void setup();
 #ifdef __cplusplus
 } // extern "C"
 #endif
-
-//add your function definitions for the project yabp-arduino-uno here
-
+bool setFunction();
+bool executeFunction();
+bool isNum(uint8_t num);
 
 
 
