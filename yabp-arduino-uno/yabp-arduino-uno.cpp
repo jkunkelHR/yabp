@@ -66,7 +66,7 @@ bool setFunction()
 	functioncall[0] = 0;
 	functioncall[1] = 0;
 	bool return_value = false;
-
+	Serial.print("---check function\n\r");
 	 if (Serial.available())
 	 {
 		 // Serial.readBytesUntil(character, buffer, length)
@@ -93,6 +93,7 @@ bool setFunction()
 				Serial.print(functioncall[1]);
 				Serial.print("\n\r");
 				*/
+				 Serial.print("---function OK \n\r");
 				 return_value = true;
 			 }
 		 }
@@ -103,6 +104,7 @@ bool setFunction()
 bool executeFunction()
 {
 	bool return_value = true;
+	Serial.print("---check execution\n\r");
 	switch (functioncall[0])
 				    {
 				    /*
@@ -143,6 +145,7 @@ bool executeFunction()
 
 				      break;
 				    default:
+				    	Serial.print("---execute function FALSE \n\r");
 				    	return_value = false;
 				    	break;
 				    }
