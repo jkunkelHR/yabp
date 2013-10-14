@@ -17,12 +17,23 @@ Hotplates::Hotplates(uint8_t hotplate_1, uint8_t count)
 
 void Hotplates::offHotplate(uint8_t hotPlate)
 {
-    digitalWrite(hotPlate, LOW);
+	if 	((hotplate_1-1+hotPlate >= hotplate_1)
+		&&
+		(hotplate_1-1+hotPlate <= hotplate_1 + count))
+	{
+		digitalWrite(hotplate_1-1 + hotPlate, LOW);
+	}
 }
 
 void Hotplates::onHotplate(uint8_t hotPlate)
 {
-    digitalWrite(hotPlate, HIGH);
+	if 	((hotplate_1-1+hotPlate >= hotplate_1)
+		&&
+		(hotplate_1-1+hotPlate <= hotplate_1 + count))
+	{
+		digitalWrite(hotplate_1-1 + hotPlate, HIGH);
+
+	}
 }
 
 void Hotplates::offHotplates()
