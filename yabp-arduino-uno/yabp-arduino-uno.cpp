@@ -66,9 +66,10 @@ bool setFunction()
 	functioncall[0] = 0;
 	functioncall[1] = 0;
 	bool return_value = false;
-	Serial.print("---check function\n\r");
+	//Serial.print("---check function\n\r");
 	 if (Serial.available())
 	 {
+		 //Serial.print("---serial available\n\r");
 		 // Serial.readBytesUntil(character, buffer, length)
 		 read_serial_in_size = Serial.readBytesUntil(';', serial_in, SERIAL_IN_SIZE);
 		 if(read_serial_in_size)
@@ -87,8 +88,8 @@ bool setFunction()
 						 functioncall[1] =  (functioncall[1] * 10) + ((uint8_t)serial_in[i] - (uint8_t) '0');
 					 }
 				 }
-
-				/*Serial.print(functioncall[0]);
+				 /*
+				Serial.print(functioncall[0]);
 				Serial.print("\n\r");
 				Serial.print(functioncall[1]);
 				Serial.print("\n\r");
@@ -118,13 +119,13 @@ bool executeFunction()
 				    	Serial.print("CALL SET_HOTPLATE_NOx_ON ");
 				    	Serial.print(functioncall[1]);
 				    	Serial.print("\n\r");
-
+				    	hotplates.onHotplate(functioncall[1]);
 				      break;
 				    case SET_HOTPLATE_NOx_OFF:
 				    	Serial.print("CALL SET_HOTPLATE_NOx_OFF ");
 				    	Serial.print(functioncall[1]);
 				    	Serial.print("\n\r");
-
+				    	hotplates.offHotplate(functioncall[1]);
 				      break;
 				    case GET_HOTPLATE_NOx_OFF:
 				    	Serial.print("CALL GET_HOTPLATE_NOx_OFF ");
@@ -136,6 +137,7 @@ bool executeFunction()
 				    	Serial.print("CALL SET_ALL_HOTPLATES_OFF ");
 				    	Serial.print(functioncall[1]);
 				    	Serial.print("\n\r");
+				    	hotplates.offHotplates();
 
 				      break;
 				    case GET_TEMP_NOx:
