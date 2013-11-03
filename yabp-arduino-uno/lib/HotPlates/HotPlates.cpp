@@ -55,8 +55,14 @@ void Hotplates::onHotplates(uint8_t delayInSeconds)
 
 bool Hotplates::getHotplate(uint8_t hotPlate)
 {
-
-	return digitalRead(hotPlate);
+	bool return_value = 0;
+	if 	((hotplate_1-1+hotPlate >= hotplate_1)
+			&&
+			(hotplate_1-1+hotPlate <= hotplate_1 + count))
+		{
+		return_value =  digitalRead(hotplate_1-1 + hotPlate);
+		}
+	return return_value;
 }
 
 uint8_t Hotplates::getCount() const {

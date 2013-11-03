@@ -7,7 +7,7 @@
 // funktioncall 1-1; or 5-63; ...
 #define SET_HOTPLATE_NOx_ON             	1
 #define SET_HOTPLATE_NOx_OFF        		2
-#define GET_HOTPLATE_NOx_OFF        		3
+#define GET_HOTPLATE_NOx		       		3
 #define SET_ALL_HOTPLATES_OFF           	4
 #define GET_TEMP_NOx         				5
 
@@ -52,10 +52,7 @@ void setup()
 // The loop function is called in an endless loop
 void loop()
 {
-	 //digitalWrite(LED, HIGH);   // turn the LED on (HIGH is the voltage level)
-	 //delay(100);               // wait for a second
-	 //digitalWrite(LED, LOW);    // turn the LED off by making the voltage LOW
-	 //delay(1000);               // wait for a second
+
 	 if(setFunction())
 		 executeFunction();
 }
@@ -127,10 +124,13 @@ bool executeFunction()
 				    	Serial.print("\n\r");
 				    	hotplates.offHotplate(functioncall[1]);
 				      break;
-				    case GET_HOTPLATE_NOx_OFF:
-				    	Serial.print("CALL GET_HOTPLATE_NOx_OFF ");
+				    case GET_HOTPLATE_NOx:
+				    	Serial.print("CALL GET_HOTPLATE_NOx ");
 				    	Serial.print(functioncall[1]);
 				    	Serial.print("\n\r");
+				    	Serial.print(hotplates.getHotplate(functioncall[1]));
+				    	Serial.print("\n\r");
+
 
 				      break;
 				    case SET_ALL_HOTPLATES_OFF:
@@ -144,6 +144,9 @@ bool executeFunction()
 				    	Serial.print("CALL GET_TEMP_NOx ");
 				    	Serial.print(functioncall[1]);
 				    	Serial.print("\n\r");
+				    	sensors.requestTemperaturesByIndex(functioncall[1]-1);
+				    	Serial.println(sensors.getTempCByIndex(functioncall[1]-1));
+
 
 				      break;
 				    default:
